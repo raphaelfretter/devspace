@@ -11,7 +11,7 @@ metadata:
   language: ObjectScript
   version: 1.0.0
 components:
-    name: tools
+  - name: tools
     container:
       cpuLimit: 4000m
       cpuRequest: 500m
