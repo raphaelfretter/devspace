@@ -1,8 +1,7 @@
 ---
 schemaVersion: 2.2.0
 metadata:
-  ## Lowercase only
-  name: universaldevspace
+  name: UniversalDevSpace
   displayName: Universal Devspace
   description: Universal DevSpace utilizing quay.io/devfile/universal-developer-image:ubi8-latest
   icon: https://landscape.cncf.io/logos/devfile.svg
@@ -32,4 +31,5 @@ projects:
   - git:
       remotes:
         origin: https://github.com/musbell2/DevSpacesExample.git
-    name: DevSpacesExample
+    ## name must be lowercase
+    name: devspaces-example-repo
