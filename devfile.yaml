@@ -32,4 +32,4 @@ projects:
       remotes:
         origin: https://github.com/musbell2/DevSpacesExample.git
     ## name must be lowercase
-    name: devspaces-example-repo
+    name: devspacesexample
