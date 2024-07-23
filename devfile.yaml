@@ -1,0 +1,34 @@
+---
+schemaVersion: 2.2.0
+metadata:
+  name: UniversalDevSpace
+  displayName: Universal Devspace
+  description: Universal DevSpace utilizing quay.io/devfile/universal-developer-image:ubi8-latest
+  icon: https://landscape.cncf.io/logos/devfile.svg
+  tags:
+    - ubi8
+  projectType: universal
+  language: ObjectScript
+  version: 1.0.0
+components:
+    name: tools
+    container:
+      cpuLimit: 4000m
+      cpuRequest: 500m
+      memoryLimit: 6G
+      memoryRequest: 512Mi
+      env:
+        - name: NODE_EXTRA_CA_CERTS
+          value: /public-certs/ca-certs.ca-bundle.crt      
+        - name: REGISTRY_AUTH_FILE
+          value: ~/auth.json
+        - name: SSL_CERT_DIR
+          value: /public-certs
+        - name: USE_JAVA17
+          value: "true"
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
+projects:
+  - git:
+      remotes:
+        origin: https://github.com/musbell2/DevSpacesExample.git
+    name: DevSpacesExample
