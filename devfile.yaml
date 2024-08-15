@@ -27,9 +27,9 @@ components:
         - name: USE_JAVA17
           value: "true"
       image: quay.io/devfile/universal-developer-image:ubi8-latest
-projects:
-  - git:
-      remotes:
-        origin: https://github.com/musbell2/DevSpacesExample.git
-    ## name must be lowercase
-    name: devspacesexample
+# projects:
+#  - git:
+#      remotes:
+#        origin: https://github.com/musbell2/DevSpacesExample.git
+#    ## name must be lowercase
+#    name: devspacesexample
