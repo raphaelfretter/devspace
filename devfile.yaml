@@ -18,13 +18,16 @@ components:
       memoryLimit: 6G
       memoryRequest: 512Mi
       env:
+        #### ENVIRONMENT VARIABLES PASSED DIRECTLY TO THE WORKSPACE/CONTAINER
         - name: NODE_EXTRA_CA_CERTS
-          value: /public-certs/ca-certs.ca-bundle.crt      
-        - name: REGISTRY_AUTH_FILE   # https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
+          value: /public-certs/ca-certs.ca-bundle.crt   
+        # https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
+        - name: REGISTRY_AUTH_FILE
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
         - name: SSL_CERT_DIR
           value: /public-certs
-        - name: GIT_SSL_CAINFO    # https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
+        # https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
+        - name: GIT_SSL_CAINFO
           value: /public-certs/che-git-self-signed-cert.ca-bundle.crt
       image: quay.io/devfile/universal-developer-image:ubi8-latest
  projects:
