@@ -24,12 +24,12 @@ components:
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
         - name: SSL_CERT_DIR
           value: /public-certs
-        - name: USE_JAVA17
-          value: "true"
+        - name: GIT_SSL_CAINFO    # https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
+          value: /public-certs/che-git-self-signed-cert.ca-bundle.crt
       image: quay.io/devfile/universal-developer-image:ubi8-latest
-# projects:
-#  - git:
-#      remotes:
-#        origin: https://github.com/musbell2/DevSpacesExample.git
-#    ## name must be lowercase
-#    name: devspacesexample
+ projects:
+  - git:
+      remotes:
+        origin: https://github.com/musbell2/DevSpacesExample.git
+    ## name must be lowercase
+    name: devspacesexample
