@@ -20,8 +20,8 @@ components:
       env:
         - name: NODE_EXTRA_CA_CERTS
           value: /public-certs/ca-certs.ca-bundle.crt      
-        - name: REGISTRY_AUTH_FILE
-          value: ~/auth.json
+        - name: REGISTRY_AUTH_FILE   # https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
+          value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
         - name: SSL_CERT_DIR
           value: /public-certs
         - name: USE_JAVA17
