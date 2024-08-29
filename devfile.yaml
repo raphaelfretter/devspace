@@ -19,14 +19,39 @@ components:
       memoryRequest: 512Mi
       env:
         #### ENVIRONMENT VARIABLES PASSED DIRECTLY TO THE WORKSPACE/CONTAINER
-        - name: NODE_EXTRA_CA_CERTS
-          value: /public-certs/ca-certs.ca-bundle.crt
+
+          # enables "podman run" within container
+            # The podman build -t <image> . && podman run <image> command will fail. 
+            # Use podman build -t <image> . && podman push <image> && podman run <image> instead.
+        - name: KUBEDOCK_ENABLED ## https://eclipse.dev/che/docs/stable/end-user-guide/running-containers-with-kubedock/
+          value: 'true'
+        - name: CONTAINER_HOST
+          value: 'tcp://127.0.0.1:2475'
+          
+          # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
         - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
+
+          # certificate locations. Used by Node.js, Java, Git cli, etc.
+        - name: NODE_EXTRA_CA_CERTS
+          value: /public-certs/ca-certs.ca-bundle.crt
         - name: SSL_CERT_DIR
           value: /public-certs
         - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
           value: /public-certs/che-git-self-signed-cert.ca-bundle.crt
+      endpoints:
+        ##  Endpoints are used to expose a port in workspace/container - https://devfile.io/docs/2.0.0/defining-endpoints
+          # kubedock with no exposure. Within workspace only.
+        - exposure: none
+          name: kubedock
+          protocol: tcp
+          targetPort: 2475
+          # Example to expose some webserver via Route/Ingress:
+        # - name: 'web'
+        #   targetPort: 8080
+        #   exposure: public
+        #   protocol: http
+
       image: quay.io/devfile/universal-developer-image:ubi8-latest
 projects:
   - git:
