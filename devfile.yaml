@@ -31,6 +31,10 @@ components:
           # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
         - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
+        
+          # Temporary - disables ssl verification for git until certs are in bundle
+        - name: GIT_SSL_NO_VERIFY
+          value: 'true'
 
           # certificate locations. Used by Node.js, Java, Git cli, etc.
         - name: NODE_EXTRA_CA_CERTS
