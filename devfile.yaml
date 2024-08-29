@@ -32,9 +32,9 @@ components:
         - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
         
-          # Temporary - disables ssl verification for git until certs are in bundle
-        - name: GIT_SSL_NO_VERIFY
-          value: 'true'
+          # disables ssl verification for git until certs are in bundle
+        # - name: GIT_SSL_NO_VERIFY
+        #   value: 'true'
 
           # certificate locations. Used by Node.js, Java, Git cli, etc.
         - name: NODE_EXTRA_CA_CERTS
@@ -51,10 +51,10 @@ components:
           protocol: tcp
           targetPort: 2475
           # Example to expose some webserver via Route/Ingress:
-        # - name: 'web'
-        #   targetPort: 8080
-        #   exposure: public
-        #   protocol: http
+        - name: 'web'
+          targetPort: 8080
+          exposure: public
+          protocol: http
 
       image: quay.io/devfile/universal-developer-image:ubi8-latest
 projects:
