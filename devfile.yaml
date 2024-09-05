@@ -61,9 +61,9 @@ components:
 commands:
   - id: add-mounted-shell-to-bashrc
     exec:
-      commandLine: 'echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc'
+      commandLine: echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc
       component: tools
-      
+
 projects:
   - git:
       remotes:
