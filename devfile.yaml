@@ -57,6 +57,13 @@ components:
           protocol: http
 
       image: quay.io/devfile/universal-developer-image:ubi8-latest
+
+commands:
+  - id: add-mounted-shell-to-bashrc
+    exec:
+      commandLine: 'echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc'
+      component: tools
+      
 projects:
   - git:
       remotes:
