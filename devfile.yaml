@@ -59,6 +59,7 @@ components:
       image: quay.io/devfile/universal-developer-image:ubi8-latest
 
 commands:
+    # For: customShellScriptAsCommand.yaml
   - id: add-mounted-shell-to-bashrc
     exec:
       commandLine: echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc

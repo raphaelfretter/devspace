@@ -1,0 +1,24 @@
+## This is an example of a shell script that you can mount with execute permission.
+## Add this script to the $PATH via devfile.yaml to run it as a regular command
+
+### Usage if added to path: "gitazure clone <UrlOfGitRepo>"
+### This is only needed for the legacy self hosted Team Foundation Server git since DevSpaces does not support auth to it regularly.
+### This shell script is just a git wrapper.
+
+kind: Secret
+apiVersion: v1
+metadata:
+  name: gitazure-shell-script-as-command
+  labels:
+    controller.devfile.io/mount-to-devworkspace: 'true'
+    controller.devfile.io/watch-secret: 'true'
+  annotations:
+    controller.devfile.io/mount-access-mode: '0775'
+    controller.devfile.io/mount-as: file
+    controller.devfile.io/mount-path: /home/user/gitazure
+data:
+  ## The base64 data is the below shell script:
+  ## #!/bin/bash
+  ## git -c http.extraHeader="Authorization: Basic yourLegacyAzurePATToken" "$@"
+  gitazure: IyEvYmluL2Jhc2gKCmdpdCAtYyBodHRwLmV4dHJhSGVhZGVyPSJBdXRob3JpemF0aW9uOiBCYXNpYyB5b3VyTGVnYWN5QXp1cmVQQVRUb2tlbiIgIiRAIg==
+type: Opaque
