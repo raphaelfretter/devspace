@@ -63,6 +63,9 @@ commands:
     exec:
       commandLine: echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc
       component: tools
+events:
+  postStart:
+    - add-mounted-shell-to-bashrc
 
 projects:
   - git:
