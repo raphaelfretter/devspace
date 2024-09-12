@@ -20,5 +20,7 @@ data:
   ## The base64 data is the below shell script:
   ## #!/bin/bash
   ## git -c http.extraHeader="Authorization: Basic yourLegacyAzurePATToken" "$@"
+  ## AZURE GIT REQUIREMENT:The PAT token needs to be in base64 format with a colon in front.
+  ### Example: echo -n ":yourLegacyAzurePATToken" | base64
   gitazure: IyEvYmluL2Jhc2gKCmdpdCAtYyBodHRwLmV4dHJhSGVhZGVyPSJBdXRob3JpemF0aW9uOiBCYXNpYyB5b3VyTGVnYWN5QXp1cmVQQVRUb2tlbiIgIiRAIg==
 type: Opaque
