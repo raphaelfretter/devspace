@@ -17,10 +17,10 @@ metadata:
     controller.devfile.io/mount-as: file
     controller.devfile.io/mount-path: /home/user/gitazure
 data:
-  ## The base64 data is the below shell script:
-  ## #!/bin/bash
-  ## git -c http.extraHeader="Authorization: Basic yourLegacyAzurePATToken" "$@"
-  ## AZURE GIT REQUIREMENT:The PAT token needs to be in base64 format with a colon in front.
-  ### Example: echo -n ":yourLegacyAzurePATToken" | base64
-  gitazure: IyEvYmluL2Jhc2gKCmdpdCAtYyBodHRwLmV4dHJhSGVhZGVyPSJBdXRob3JpemF0aW9uOiBCYXNpYyB5b3VyTGVnYWN5QXp1cmVQQVRUb2tlbiIgIiRAIg==
+  ## The gitazure value is the below shell script:
+   ## #!/bin/bash
+   ## PATToken=yourLegacyAzurePATToken
+   ## Base64Token=$(echo -n ":$PATToken" | base64)
+   ## git -c http.extraHeader="Authorization: Basic $Base64Token" "$@"
+  gitazure: IyEvYmluL2Jhc2gKClBBVFRva2VuPXlvdXJMZWdhY3lBenVyZVBBVFRva2VuCgpCYXNlNjRUb2tlbj0kKGVjaG8gLW4gIjokUEFUVG9rZW4iIHwgYmFzZTY0KQpnaXQgLWMgaHR0cC5leHRyYUhlYWRlcj0iQXV0aG9yaXphdGlvbjogQmFzaWMgJEJhc2U2NFRva2VuIiAiJEAiCg==
 type: Opaque
