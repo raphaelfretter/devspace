@@ -68,9 +68,9 @@ events:
   postStart:
     - add-mounted-shell-to-bashrc
 
-projects:
-  - git:
-      remotes:
-        origin: https://github.com/musbell2/DevSpacesExample.git
-    ## name must be lowercase
-    name: devspacesexample
+# projects:
+#   - git:
+#       remotes:
+#         origin: https://github.com/musbell2/DevSpacesExample.git
+#     ## name must be lowercase
+#     name: devspacesexample
