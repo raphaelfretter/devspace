@@ -1,7 +1,7 @@
 ---
 schemaVersion: 2.2.0
 metadata:
-  name: UniversalDevSpace-udi-rhel8
+  name: udi8
   displayName: Universal Devspace
   description: Universal DevSpace utilizing quay.io/devfile/universal-developer-image:ubi8-latest
   icon: https://landscape.cncf.io/logos/devfile.svg
@@ -54,8 +54,8 @@ components:
           targetPort: 8080
           exposure: public
           protocol: http
-      image: quay.io/devspaces/udi-rhel8:latest
-      #image: quay.io/devfile/universal-developer-image:ubi8-latest
+      #image: quay.io/devspaces/udi-rhel8:latest
+      image: quay.io/devfile/universal-developer-image:ubi8-latest
 
 commands:
     # For: customShellScriptAsCommand.yaml
