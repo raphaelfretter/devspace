@@ -13,9 +13,9 @@ metadata:
 components:
   - name: tools
     container:
-      cpuLimit: 1000m
+      cpuLimit: 2000m
       cpuRequest: 500m
-      memoryLimit: 2G
+      memoryLimit: 4G
       memoryRequest: 512Mi
       env:
         #### ENVIRONMENT VARIABLES PASSED DIRECTLY TO THE WORKSPACE/CONTAINER
@@ -23,11 +23,10 @@ components:
           # enables "podman run" within container
             # The podman build -t <image> . && podman run <image> command will fail. 
             # Use podman build -t <image> . && podman push <image> && podman run <image> instead.
+               # image to be tagged/pushed to external registry.
         - name: KUBEDOCK_ENABLED ## https://eclipse.dev/che/docs/stable/end-user-guide/running-containers-with-kubedock/
           value: 'true'
-        - name: CONTAINER_HOST
-          value: 'tcp://127.0.0.1:2475'
-          
+
           # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
         - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
