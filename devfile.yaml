@@ -13,7 +13,7 @@ metadata:
 components:
   - name: tools
     container:
-      cpuLimit: 2000m
+      cpuLimit: 3000m
       cpuRequest: 500m
       memoryLimit: 4G
       memoryRequest: 512Mi
