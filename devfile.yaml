@@ -24,6 +24,10 @@ components:
             # The podman build -t <image> . && podman run <image> command will fail. 
             # Use podman build -t <image> . && podman push <image> && podman run <image> instead.
                # image to be tagged/pushed to external registry.
+               ## To open bash session to container, -i with podman run won't work, so you will need to:
+                  # podman run -d bitnami/nginx:latest
+                  # podman ps -a
+                  # podman exec -it 98504TheContainerID /bin/bash
         - name: KUBEDOCK_ENABLED ## https://eclipse.dev/che/docs/stable/end-user-guide/running-containers-with-kubedock/
           value: 'true'
 
