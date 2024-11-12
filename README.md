@@ -67,7 +67,7 @@ https://YOURDEVSPACESURL/dashboard/#/user-preferences?tab=ContainerRegistries
 1. Enable Kubedock in [devfile.yaml env block](devfile.yaml)
 ```
 - name: KUBEDOCK_ENABLED ## https://eclipse.dev/che/docs/stable/end-user-guide/running-containers-with-kubedock/
-   value: 'true'
+  value: 'true'
 ```
 
 2. Utilize podman
