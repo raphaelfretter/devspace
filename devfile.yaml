@@ -45,7 +45,7 @@ components:
         - name: SSL_CERT_DIR
           value: /public-certs
         - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
-          value: /public-certs/che-git-self-signed-cert.ca-bundle.crt
+          value: /public-certs/tls-ca-bundle.pem
       endpoints:
         ##  Endpoints are used to expose a port in workspace/container - https://devfile.io/docs/2.0.0/defining-endpoints
           # kubedock with no exposure. Within workspace only.
@@ -67,13 +67,18 @@ commands:
     exec:
       commandLine: echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc
       component: tools
+  - id: alias
+    exec:
+      commandLine: alias ll="ls -lah"
+      component: tools
 events:
   postStart:
     - add-mounted-shell-to-bashrc
+    - alias
 
 projects:
   - git:
       remotes:
-        origin: https://github.com/musbell2/DevSpacesExample.git
+        origin: https://github.com/raphaelfretter/devspace.git
     ## name must be lowercase
     name: devspacesexample
