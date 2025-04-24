@@ -36,14 +36,14 @@ components:
           value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
         
           # disables ssl verification for git until certs are in bundle
-        - name: GIT_SSL_NO_VERIFY
-          value: 'true'
+        # - name: GIT_SSL_NO_VERIFY
+        #   value: 'true'
 
           # certificate locations. Used by Node.js, Java, Git cli, etc.
-        - name: NODE_EXTRA_CA_CERTS
-          value: /public-certs/ca-certs.ca-bundle.crt
-        - name: SSL_CERT_DIR
-          value: /public-certs
+        # - name: NODE_EXTRA_CA_CERTS
+        #   value: /public-certs/ca-certs.ca-bundle.crt
+        # - name: SSL_CERT_DIR
+        #   value: /public-certs
         # - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
         #   value: /public-certs/tls-ca-bundle.pem
       endpoints:
