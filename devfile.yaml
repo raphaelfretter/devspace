@@ -44,8 +44,8 @@ components:
           value: /public-certs/ca-certs.ca-bundle.crt
         - name: SSL_CERT_DIR
           value: /public-certs
-        - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
-          value: /public-certs/tls-ca-bundle.pem
+        # - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
+        #   value: /public-certs/tls-ca-bundle.pem
       endpoints:
         ##  Endpoints are used to expose a port in workspace/container - https://devfile.io/docs/2.0.0/defining-endpoints
           # kubedock with no exposure. Within workspace only.
