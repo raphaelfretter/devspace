@@ -71,6 +71,7 @@ commands:
         alias ...='cd ../..'; \
         alias ....='cd ../../..'; \
         alias c='clear'
+      component: tools
 events:
   postStart:
     - add-mounted-shell-to-bashrc
