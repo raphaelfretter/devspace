@@ -32,20 +32,8 @@ components:
           value: 'true'
 
           # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
-        - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
-          value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
-        
-          # disables ssl verification for git until certs are in bundle
-        - name: GIT_SSL_NO_VERIFY
-          value: 'true'
-
-          # certificate locations. Used by Node.js, Java, Git cli, etc.
-        # - name: NODE_EXTRA_CA_CERTS
-        #   value: /public-certs/ca-certs.ca-bundle.crt
-        # - name: SSL_CERT_DIR
-        #   value: /public-certs
-        # - name: GIT_SSL_CAINFO ## https://git-scm.com/docs/git-config/2.18.0#Documentation/git-config.txt-httpsslCAInfo
-        #   value: /public-certs/tls-ca-bundle.pem
+        # - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
+        #   value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson        
       endpoints:
         ##  Endpoints are used to expose a port in workspace/container - https://devfile.io/docs/2.0.0/defining-endpoints
           # kubedock with no exposure. Within workspace only.
@@ -69,8 +57,20 @@ commands:
       component: tools
   - id: alias
     exec:
-      commandLine: alias ll="ls -lah"
+      commandLine: alias ll="ls -lah -color=auto"
       component: tools
+  - id: more-aliases
+    exec:
+      commandLine: |
+        alias l='ls --color=auto'; \
+        alias ls='ls -lah --color=auto'; \
+        alias grep='grep --color=auto'; \
+        alias mkdir='mkdir -pv'; \
+        alias ~='cd ~'; \
+        alias ..='cd ..'; \
+        alias ...='cd ../..'; \
+        alias ....='cd ../../..'; \
+        alias c='clear'
 events:
   postStart:
     - add-mounted-shell-to-bashrc
