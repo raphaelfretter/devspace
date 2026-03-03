@@ -64,6 +64,7 @@ components:
           alias ....='cd ../../..'
           alias c='clear'
           EOF
+          exec bash
 
 commands:
     # For: customShellScriptAsCommand.yaml
