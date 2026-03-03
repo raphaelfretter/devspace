@@ -53,15 +53,15 @@ components:
       args:
         - -c
         - |
-          echo "alias l='ls --color=auto'" >> ~/.bashrc
-          echo "alias ls='ls -lah --color=auto'" >> ~/.bashrc
-          echo "alias grep='grep --color=auto'" >> ~/.bashrc
-          echo "alias mkdir='mkdir -pv'" >> ~/.bashrc
-          echo "alias ~='cd ~'" >> ~/.bashrc
-          echo "alias ..='cd ..'" >> ~/.bashrc
-          echo "alias ...='cd ../..'" >> ~/.bashrc
-          echo "alias ....='cd ../../..'" >> ~/.bashrc
-          echo "alias c='clear'" >> ~/.bashrc
+          echo "alias l='ls --color=auto'" >> /home/user/.bashrc
+          echo "alias ls='ls -lah --color=auto'" >> /home/user/.bashrc
+          echo "alias grep='grep --color=auto'" >> /home/user/.bashrc
+          echo "alias mkdir='mkdir -pv'" >> /home/user/.bashrc
+          echo "alias ~='cd /home/user'" >> /home/user/.bashrc
+          echo "alias ..='cd ..'" >> /home/user/.bashrc
+          echo "alias ...='cd ../..'" >> /home/user/.bashrc
+          echo "alias ....='cd ../../..'" >> /home/user/.bashrc
+          echo "alias c='clear'" >> /.bashrc
           exec bash
 
 commands:
