@@ -48,22 +48,6 @@ components:
           protocol: http
       #image: quay.io/devspaces/udi-rhel8:latest
       image: quay.io/devfile/universal-developer-image:ubi8-latest
-      command:
-        - /bin/sh
-      args:
-        - -c
-        - |
-          echo "alias l='ls --color=auto'" >> /home/user/.bashrc
-          echo "alias ls='ls -lah --color=auto'" >> /home/user/.bashrc
-          echo "alias grep='grep --color=auto'" >> /home/user/.bashrc
-          echo "alias mkdir='mkdir -pv'" >> /home/user/.bashrc
-          echo "alias ~='cd /home/user'" >> /home/user/.bashrc
-          echo "alias ..='cd ..'" >> /home/user/.bashrc
-          echo "alias ...='cd ../..'" >> /home/user/.bashrc
-          echo "alias ....='cd ../../..'" >> /home/user/.bashrc
-          echo "alias c='clear'" >> /.bashrc
-          exec bash
-
 commands:
     # For: customShellScriptAsCommand.yaml
   - id: add-mounted-shell-to-bashrc
@@ -73,7 +57,6 @@ commands:
 events:
   postStart:
     - add-mounted-shell-to-bashrc
-    - alias
 
 projects:
   - git:
