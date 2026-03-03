@@ -66,15 +66,15 @@ commands:
   - id: more-aliases
     exec:
       commandLine: |
-        echo <<EOF > ~/.bashrc
-        alias l='ls --color=auto'; \
-        alias ls='ls -lah --color=auto'; \
-        alias grep='grep --color=auto'; \
-        alias mkdir='mkdir -pv'; \
-        alias ~='cd ~'; \
-        alias ..='cd ..'; \
-        alias ...='cd ../..'; \
-        alias ....='cd ../../..'; \
+        cat <<'EOF' >> ~/.bashrc
+        alias l='ls --color=auto'
+        alias ls='ls -lah --color=auto'
+        alias grep='grep --color=auto'
+        alias mkdir='mkdir -pv'
+        alias ~='cd ~'
+        alias ..='cd ..'
+        alias ...='cd ../..'
+        alias ....='cd ../../..'
         alias c='clear'
         EOF
       component: tools
