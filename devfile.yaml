@@ -70,20 +70,6 @@ commands:
     exec:
       commandLine: echo "export PATH=/home/user/gitazure:$PATH" >> /home/user/.bashrc
       component: tools
-  - id: alias
-    exec:
-      commandLine: |
-        echo "alias l='ls --color=auto'" >> /home/user/.bashrc &&
-        echo "alias ll='ls -lah --color=auto'" >> /home/user/.bashrc &&
-        echo "alias grep='grep --color=auto'" >> /home/user/.bashrc &&
-        echo "alias mkdir='mkdir -pv'" >> /home/user/.bashrc &&
-        echo "alias ~='cd /home/user'" >> /home/user/.bashrc &&
-        echo "alias ..='cd ..'" >> /home/user/.bashrc &&
-        echo "alias ...='cd ../..'" >> /home/user/.bashrc &&
-        echo "alias ....='cd ../../..'" >> /home/user/.bashrc &&
-        echo "alias c='clear'" >> /.bashrc &&
-        exec bash
-      component: tools
 events:
   postStart:
     - add-mounted-shell-to-bashrc
