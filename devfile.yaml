@@ -62,16 +62,16 @@ commands:
     exec:
       commandLine: |
         cat <<'EOF' >> ~/.bashrc
-        alias l='ls --color=auto'
-        alias ls='ls -lah --color=auto'
-        alias grep='grep --color=auto'
-        alias mkdir='mkdir -pv'
-        alias ~='cd ~'
-        alias ..='cd ..'
-        alias ...='cd ../..'
-        alias ....='cd ../../..'
-        alias c='clear'
-        EOF
+          alias l='ls --color=auto'
+          alias ls='ls -lah --color=auto'
+          alias grep='grep --color=auto'
+          alias mkdir='mkdir -pv'
+          alias ~='cd ~'
+          alias ..='cd ..'
+          alias ...='cd ../..'
+          alias ....='cd ../../..'
+          alias c='clear'
+          EOF
       component: tools
 events:
   postStart:
