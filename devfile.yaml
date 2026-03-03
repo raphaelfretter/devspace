@@ -34,10 +34,6 @@ components:
           # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
         # - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
         #   value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
-    extensions:
-      - id: vscodevim
-        version: "1.32.4"
-        source: https://open-vsx.org/extension/vscodevim/vim   
       endpoints:
         ##  Endpoints are used to expose a port in workspace/container - https://devfile.io/docs/2.0.0/defining-endpoints
           # kubedock with no exposure. Within workspace only.
@@ -52,6 +48,10 @@ components:
           protocol: http
       #image: quay.io/devspaces/udi-rhel8:latest
       image: quay.io/devfile/universal-developer-image:ubi8-latest
+    extensions:
+      - id: vscodevim
+        version: "1.32.4"
+        source: https://open-vsx.org/extension/vscodevim/vim   
 
 commands:
     # For: customShellScriptAsCommand.yaml
