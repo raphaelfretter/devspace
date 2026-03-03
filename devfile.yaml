@@ -74,21 +74,6 @@ commands:
     exec:
       commandLine: alias ll="ls -lah -color=auto"
       component: tools
-  - id: more-aliases
-    exec:
-      commandLine: |
-        cat <<'EOF' >> ~/.bashrc
-          alias l='ls --color=auto'
-          alias ls='ls -lah --color=auto'
-          alias grep='grep --color=auto'
-          alias mkdir='mkdir -pv'
-          alias ~='cd ~'
-          alias ..='cd ..'
-          alias ...='cd ../..'
-          alias ....='cd ../../..'
-          alias c='clear'
-          EOF
-      component: tools
 events:
   postStart:
     - add-mounted-shell-to-bashrc
