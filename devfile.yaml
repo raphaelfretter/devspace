@@ -30,7 +30,8 @@ components:
                 # podman exec -it 98504TheContainerID /bin/bash
         - name: KUBEDOCK_ENABLED ## https://eclipse.dev/che/docs/stable/end-user-guide/running-containers-with-kubedock/
           value: 'true'
-
+        - name: GIT_SSL_NO_VERIFY
+          value: 'true'
           # registry token path to be used for podman authentication. Created from "RegistryAuthTokenSecret.yaml"
         # - name: REGISTRY_AUTH_FILE ## https://docs.podman.io/en/latest/markdown/podman-login.1.html#authfile-path
         #   value: /etc/secret/devworkspace-container-registry-dockercfg/.dockerconfigjson
